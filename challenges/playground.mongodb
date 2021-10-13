@@ -1,3 +1,14 @@
 // MongoDB Playground
 use("commerce");
-db.produtos.find();
+db.produtos.updateMany(
+    {},
+    { $addToSet: { criadoPor: "Ronald McDonald" } },
+);
+db.produtos.find(
+    {},
+    { 
+    criadoPor: "Ronald McDonald",
+    _id: 0,
+    nome: 1, 
+    },
+);

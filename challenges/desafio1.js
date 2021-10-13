@@ -6,5 +6,15 @@ Crie uma query que adicione o campo criadoPor em todos os documentos, colocando 
 
 Crie uma query que retorne o nome e criadoPor de todos os produtos.
 */
-use("commerce");
-db.produtos.find();
+db.produtos.updateMany(
+    {},
+    { $addToSet: { criadoPor: "Ronald McDonald" } },
+);
+db.produtos.find(
+    {},
+    { 
+    criadoPor: "Ronald McDonald",
+    _id: 0,
+    nome: 1, 
+    },
+);
