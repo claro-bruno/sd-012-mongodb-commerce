@@ -2,12 +2,12 @@
 use("commerce");
 db.produtos.updateMany(
     {},
-    { $addToSet: { criadoPor: "Ronald McDonald" } },
+    { $set: { valorUnitario: NumberDecimal("0.00") } },
 );
 db.produtos.find(
     {},
     { 
-    criadoPor: "Ronald McDonald",
+    valorUnitario: 1,
     _id: 0,
     nome: 1, 
     },
