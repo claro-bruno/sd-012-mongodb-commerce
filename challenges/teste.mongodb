@@ -1,3 +1,5 @@
+use("commerce");
+
 db.produtos.updateMany(
   {},
   {
@@ -6,6 +8,8 @@ db.produtos.updateMany(
     },
   },
 );
+
+use("commerce");
 
 db.produtos.find(
   {},
