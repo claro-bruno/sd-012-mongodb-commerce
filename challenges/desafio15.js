@@ -1,3 +1,3 @@
 db.produtos.find(
-  { nome: /mc/i }
+  { nome: /mc/i },
 ).count();
