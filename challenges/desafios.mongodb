@@ -326,11 +326,38 @@ db.produtos.count(
 
 // Desafio 19
 use('commerce');
-db.produtos.find();
+db.produtos.updateMany(
+  {},
+  { $rename: {
+      descricao: "descricaoSite"
+    },
+  },
+);
+
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    nome: 1,
+    descricao: 1,
+    descricaoSite: 1,
+  },
+);
 
 // Desafio 20
 use('commerce');
 db.produtos.find();
+
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    nome: 1,
+    curtidas: 1,
+  },
+);
 
 // Desafio 21
 use('commerce');
