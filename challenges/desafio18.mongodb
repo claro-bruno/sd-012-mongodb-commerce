@@ -1,0 +1,15 @@
+use("commerce");
+db.produtos.createIndex({ descricao: "text"}, { default_language: "portuguese" });
+
+use("commerce");
+db.produtos.find(
+  {
+    $text: {
+      $search: "\"feito com\"",
+    }
+  }
+).count();
+
+use("commerce");
+db.produtos.find()
+
