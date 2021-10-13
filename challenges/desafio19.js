@@ -4,7 +4,6 @@ db.produtos.updateMany({}, {
   },
 });
 
-
 db.produtos.find({}, {
   nome: 1,
   descricao: 1,
