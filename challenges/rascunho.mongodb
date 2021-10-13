@@ -76,3 +76,74 @@ db.produtos.find(
     nome: 1,  
     _id: 0 },
 );
+
+// 5 - Adicione ketchup aos ingredientes para todos os sanduíches menos o McChicken, garantindo que não haja duplicidade nos ingredientes.
+
+use("commerce");
+db.produtos.updateMany(
+  { nome: { $ne: "McChicken" } },
+  { $push: { ingredientes: "ketchup" } }
+);
+
+
+use("commerce");
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    ingredientes: 1 
+  },
+);
+
+// 6 - Inclua bacon no final da lista de ingredientes dos sanduíches Big Mac e Quarteirão com Queijo.
+
+use("commerce");
+db.produtos.updateMany(
+  { nome: { $in: ["Big Mac", "Quarteirão com Queijo"] } },
+  { $push: { ingredientes: "bacon" } }
+);
+
+use("commerce");
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    ingredientes: 1 
+  },
+);
+
+// 7 - Remova o item cebola de todos os sanduíches.
+
+use("commerce");
+db.produtos.updateMany(
+  {},
+  { $pull: { ingredientes: "cebola" } }
+);
+
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    ingredientes: 1 
+  },
+);
+
+// 8 - Remova o primeiro ingrediente do sanduíche Quarteirão com Queijo.
+
+use("commerce");
+db.produtos.updateOne(
+  { nome: "Quarteirão com Queijo" },
+  { $pop: { ingredientes: -1 } }
+);
+
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    ingredientes: 1 
+  },
+);
