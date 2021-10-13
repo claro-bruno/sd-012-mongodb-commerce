@@ -2,16 +2,13 @@ use("commerce");
 db.produtos.find();
 
 use("commerce");
-db.produtos.updateOne(
-  
+db.produtos.updateMany(
+  {},
+  { $pull: { ingredientes: "cebola" } },
 );
 
 db.produtos.find(
-  { ultimaModificacao: { $exists: true } },
-  { _id: 0, nome: 1 },
+  {},
+  { ingredientes: 1, nome: 1, _id: 0 },
 );
-
-
-
-
 
