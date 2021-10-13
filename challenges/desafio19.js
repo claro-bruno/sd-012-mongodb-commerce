@@ -4,7 +4,7 @@ db.produtos.updateMany(
 );
 
 db.produtos.find(
-  {},
+  null,
   {
     _id: 0,
     nome: 1,
