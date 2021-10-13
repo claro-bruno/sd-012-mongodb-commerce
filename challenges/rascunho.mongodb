@@ -60,3 +60,11 @@ db.produtos.find(
     avaliacao: 1, 
     _id: 0 },
 );
+
+// 4 - Atribua a data corrente ao campo ultimaModificacao no sanduíche Big Mac.
+
+use("commerce");
+db.produtos.updateMany(
+  {},
+  { $currentDate: { ultimaModificacao: Date } },
+);
