@@ -12,7 +12,7 @@ db.produtos.updateMany(
 db.produtos.updateOne(
   { nome: "Big Mac" },
   {
-    $set:{
+    $set: {
       "vendasPorDia.3": 60,
     },
   },
