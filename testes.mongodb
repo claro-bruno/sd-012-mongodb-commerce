@@ -1,7 +1,6 @@
 use("commerce");
 
-db.produtos.createIndex({ descricao: "text" }, { default_language: "portuguese" });
-
-db.produtos
-  .find({ $text: { $search: "frango hamburguer", $language: "pt" } }, {})
-  .count();
+db.produtos.find(
+  { $expr: { $gt: [ "$curtidas", "$vendidos" ] } },
+  { nome: 1, _id: 0 }
+)
