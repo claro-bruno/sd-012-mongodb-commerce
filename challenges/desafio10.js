@@ -1,7 +1,3 @@
-use("commerce");
-db.produtos.find();
-
-use("commerce");
 db.produtos.updateMany(
   {},
   { $push: { vendasPorDia: { $each: [0, 0, 0, 0, 0, 0, 0] } } },
@@ -18,4 +14,3 @@ db.produtos.updateMany(
 );
 
 db.produtos.find({}, { vendasPorDia: 1, _id: 0, nome: 1 });
-
