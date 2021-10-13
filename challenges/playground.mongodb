@@ -1,0 +1,3 @@
+// MongoDB Playground
+use("commerce");
+db.produtos.find();
