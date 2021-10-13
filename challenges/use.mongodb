@@ -1,6 +1,8 @@
 use("commerce");
 db.produtos.find({
-    nome:{
-        $regex:/mc/i       
+    vendidos:{
+        $mod:[5, 0]
     }
-}).count();
+},{
+    nome:1, vendidos:1, _id:0
+});
