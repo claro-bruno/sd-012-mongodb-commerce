@@ -1,13 +1,11 @@
 use("commerce");
 
 db.produtos.updateMany(
+  { "valoresNutricionais.2.percentual": { $gte: 40 } },
+  { $push: { tags: { $each: [ "muito sódio" ] } } }
+);
+
+db.produtos.find(
   {},
-  { $set: { avaliacao: NumberInt(0) } }
+  { nome: 1, tags: 1, _id: 0}
 );
-
-db.produtos.updateMany(
-  { tags: { $elemMatch: { tags: "bovino" } } },
-  { $max: { avaliacao: 5 } }
-);
-
-db.produtos.find();
