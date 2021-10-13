@@ -1,10 +1,12 @@
 use("commerce");
 
-db.produtos.updateMany(
-  {},
+db.produtos.updateOne(
   {
-    $set: {
-      avaliacao: NumberInt("0"),
+    nome: "Big Mac"
+  },
+  {
+    $currentDate: {
+      ultimaModificacao: { $type: "date" }
     },
   },
 );
@@ -13,12 +15,12 @@ use("commerce");
 
 db.produtos.updateMany(
   {
-    tags: "bovino"
+    tags: "bovino",
   },
   {
     $inc: {
-      avaliacao: 5
-    }
+      avaliacao: 5,
+    },
   },
 );
 
@@ -26,22 +28,23 @@ use("commerce");
 
 db.produtos.updateMany(
   {
-    tags: "ave"
+    tags: "ave",
   },
   {
     $inc: {
-      avaliacao: 3
-    }
+      avaliacao: 3,
+    },
   },
 );
 
 use("commerce");
 
 db.produtos.find(
-  {},
+  {
+    ultimaModificacao: { $exists: true }
+  },
   {
     _id: 0,
     nome: 1,
-    avaliacao: 1,
   },
 );
