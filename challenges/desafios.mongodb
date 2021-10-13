@@ -1,0 +1,283 @@
+// Desafio 1
+use('commerce');
+db.produtos.updateMany(
+  {},
+  { $set: { criadoPor: "Ronald McDonald" } },
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "criadoPor": 1,
+  }
+);
+
+// Desafio 2
+use('commerce');
+db.produtos.updateMany(
+  { valorUnitario: { $exists: false } },
+  { $set: { valorUnitario: NumberDecimal("0.00") } },
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "valorUnitario": 1,
+  }
+);
+
+// Desafio 3
+use('commerce');
+db.produtos.updateMany(
+  {},
+  { $set: { avaliacao: NumberInt("0") } },
+);
+use('commerce');
+db.produtos.updateMany(
+  { tags: "bovino" },
+  { $inc: { avaliacao: 5 } }
+);
+use('commerce');
+db.produtos.updateMany(
+  { tags: "ave" },
+  { $inc: { avaliacao: 3 } }
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "avaliacao": 1,
+  }
+);
+
+// Desafio 4
+use('commerce');
+db.produtos.updateOne(
+  { nome: "Big Mac" },
+  { $currentDate:
+    {
+      "ultimaModificacao": { $type: "date" }
+    }
+  }
+);
+use('commerce');
+db.produtos.find(
+  { ultimaModificacao: { $exists: true } },
+  {
+    _id: 0,
+    "nome": 1,
+  }
+);
+
+// Desafio 5
+use('commerce');
+db.produtos.updateMany(
+  { nome: { $ne: "McChicken" } },
+  {
+    $addToSet: { "ingredientes": "ketchup" }
+  }
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "ingredientes": 1,
+  }
+);
+
+// Desafio 6
+use('commerce');
+db.produtos.updateMany(
+  { nome: { $in: [ "Big Mac", "Quarteirão com Queijo" ] } },
+  {
+    $push: { "ingredientes": "bacon" }
+  }
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "ingredientes": 1,
+  }
+);
+
+// Desafio 7
+use('commerce');
+db.produtos.updateMany(
+  {},
+  {
+    $pull: { "ingredientes": "cebola" }
+  }
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "ingredientes": 1,
+  }
+);
+
+// Desafio 8
+use('commerce');
+db.produtos.updateMany(
+  { nome: "Quarteirão com Queijo" },
+  {
+    $pop: { "ingredientes": -1 }
+  }
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "ingredientes": 1,
+  }
+);
+
+// Desafio 9
+use('commerce');
+db.produtos.updateMany(
+  { nome: "Cheddar McMelt" },
+  {
+    $pop: { "ingredientes": 1 }
+  }
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "ingredientes": 1,
+  }
+);
+
+// Desafio 10
+use('commerce');
+db.produtos.updateMany(
+  {},
+  { $set: { "vendasPorDia": [0, 0, 0, 0, 0, 0, 0]
+ } },
+);
+use('commerce');
+db.produtos.updateMany(
+  { nome: "Big Mac" },
+  { $inc: { "vendasPorDia.3": 60 } }
+);
+use('commerce');
+db.produtos.updateMany(
+  { tags: { $in: [ "bovino", "pão" ] } },
+  { $inc: { "vendasPorDia.7": 120 } }
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "vendasPorDia": 1,
+  }
+);
+
+// Desafio 11
+use('commerce');
+db.produtos.updateMany(
+  {},
+  {
+    $push: {
+      tags: {
+        $each: [
+            "combo",
+            "tasty",
+        ],
+        $sort: 1,
+      },
+    },
+  },
+  { upsert: true },
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "tags": 1,
+  }
+);
+
+// Desafio 12
+use('commerce');
+db.produtos.updateMany(
+  {},
+  {
+    $push: {
+      valoresNutricionais: {
+        $each: [],
+        $sort: { percentual: -1 },
+      },
+    },
+  },
+);
+use('commerce');
+db.produtos.find(
+  {},
+  {
+    _id: 0,
+    "nome": 1,
+    "valoresNutricionais": 1,
+  }
+);
+
+// Desafio 13
+use('commerce');
+db.produtos.find();
+
+// Desafio 14
+use('commerce');
+db.produtos.find();
+
+// Desafio 15
+use('commerce');
+db.produtos.find();
+
+// Desafio 16
+use('commerce');
+db.produtos.find();
+
+// Desafio 17
+use('commerce');
+db.produtos.find();
+
+// Desafio 18
+use('commerce');
+db.produtos.find();
+
+// Desafio 19
+use('commerce');
+db.produtos.find();
+
+// Desafio 20
+use('commerce');
+db.produtos.find();
+
+// Desafio 21
+use('commerce');
+db.produtos.find();
+
+// Desafio 22
+use('commerce');
+db.produtos.find();
