@@ -300,11 +300,29 @@ db.produtos.count(
 
 // Desafio 17
 use('commerce');
-db.produtos.find();
+db.produtos.createIndex(
+  { descricao: "text" },
+  { default_language: "portuguese" },
+);
+
+db.produtos.count(
+  { $text:
+    { $search: "frango hamburguer" }
+  }
+);
 
 // Desafio 18
 use('commerce');
-db.produtos.find();
+db.produtos.createIndex(
+  { descricao: "text" },
+  { default_language: "portuguese" },
+);
+
+db.produtos.count(
+  { $text:
+    { $search: "feito com" }
+  }
+);
 
 // Desafio 19
 use('commerce');
