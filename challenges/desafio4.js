@@ -1,7 +1,7 @@
 db.produtos.updateOne({ nome: "Big Mac" },
   { $currentDate: { 
     ultimaModificacao: { 
-      $type: "date" } ,
+      $type: "date" },
     },
   });
 
