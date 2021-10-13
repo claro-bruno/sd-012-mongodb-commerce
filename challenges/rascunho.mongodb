@@ -65,6 +65,14 @@ db.produtos.find(
 
 use("commerce");
 db.produtos.updateMany(
-  {},
-  { $currentDate: { ultimaModificacao: Date } },
+  { title: "Big Mac"},
+  { $currentDate: { ultimaModificacao: { $type: "date" } } },
+);
+
+use("commerce");
+db.produtos.find(
+  { ultimaModificacao: { $exists: true } },
+  {
+    nome: 1,  
+    _id: 0 },
 );
