@@ -1,0 +1,13 @@
+use("commerce");
+db.produtos.find().limit(10);
+
+1 - Inclua o campo criadoPor em todos os documentos, colocando "Ronald McDonald" no valor desse campo.
+
+
+use("commerce");
+db.produtos.updateMany({
+  {},
+  {
+    $push: { "criadoPor": "Ronald McDonald" }
+  }
+} );
