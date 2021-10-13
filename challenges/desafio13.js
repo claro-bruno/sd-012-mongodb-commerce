@@ -8,8 +8,7 @@ db.produtos.updateMany({
 },
   { 
     $push: { tags: "muito sódio" },
-  },
-);
+  });
 
 db.produtos.find({}, {
   nome: 1,
