@@ -4,7 +4,7 @@ db.produtos.updateMany(
   },
   {
     $pop: { ingredientes: 1 },
-  }
+  },
 );
   
 db.produtos.find(
