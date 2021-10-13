@@ -3,4 +3,4 @@ db.produtos.updateOne(
   { $currentDate: { ultimaModificacao: { $type: "date" } } },
 );
 
-db.produtos.find({ nome: "Big Mac" }, {});
+db.produtos.find({ ultimaModificacao: { $exists: true } });
