@@ -3,9 +3,9 @@ db.produtos.updateMany(
   {
     $push: {
       vendasPorDia: {
-        $each: [0, 0, 0, 0, 0, 0, 0]
-      }
-    }
+        $each: [0, 0, 0, 0, 0, 0, 0],
+      },
+    },
   },
   {
     upsert: true,

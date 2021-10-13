@@ -5,7 +5,7 @@ db.produtos.updateMany(
       tags: {
         $each: ["combo", "tasty"],
       },
-    }
+    },
   },
 );
 
