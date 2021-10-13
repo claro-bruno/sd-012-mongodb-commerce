@@ -2,4 +2,4 @@ db.produtos.updateMany({}, { $push: { tags: { $each: ["combo", "tasty"], $sort: 
 
 db.produtos.find({}, { _id: 0, nome: 1, tags: 1 });
 
-//each pra add separadamente cada elemento atraves do push
+// each pra add separadamente cada elemento atraves do push
