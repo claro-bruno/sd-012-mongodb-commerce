@@ -1,3 +1,3 @@
 db.produtos.count(
-  { nome: { $regex: /mc/i } }
+  { nome: { $regex: /mc/i } },
 );
