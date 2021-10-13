@@ -8,7 +8,7 @@ Crie uma query que retorne o nome e ingredientes de todos os documentos.
 */
 
 db.produtos.updateMany(
-    { nome: { $not: { $eq: "McChicken" } } },
+    { nome: { $ne: "McChicken" } },
     { $addToSet: { ingredientes: {
         $each: ["ketchup"],
       } } },
