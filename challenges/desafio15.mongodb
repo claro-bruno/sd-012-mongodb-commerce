@@ -1,0 +1,9 @@
+use("commerce");
+db.produtos.find(
+  { ingredientes: { $size: 4 }}
+).count();
+
+use("commerce");
+db.produtos.find()
+
+16 - Conte quantos produtos têm 4 ingredientes.
