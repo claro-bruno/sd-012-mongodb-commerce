@@ -1,6 +1,13 @@
 use("commerce");
 
 db.produtos.updateMany(
-  { valorUnitario: { $exists: false } },
-  { $set: { valorUnitario: "0.00" },  $type:"NumberDecimal" }
-)
+  {},
+  { $set: { avaliacao: NumberInt(0) } }
+);
+
+db.produtos.updateMany(
+  { tags: { $elemMatch: { tags: "bovino" } } },
+  { $max: { avaliacao: 5 } }
+);
+
+db.produtos.find();
