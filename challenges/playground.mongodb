@@ -1,17 +1,8 @@
 // MongoDB Playground
 use("commerce");
 db.produtos.updateMany(
-    { nome: { $not: { $eq: "McChicken" } } },
-    { $addToSet: { ingredientes: {
-        $each: ["ketchup"],
-      } } },
+    { nome:{ $in: ["Big Mac", "Quarteirão com Queijo"] } },
+    { $push: { ingredientes: "bacon" } },
 );
 
-db.produtos.find(
-    {},
-    {
-    _id: 0,
-    nome: 1,
-    ingredientes: 1,
-    },
-);
+
