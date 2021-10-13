@@ -288,11 +288,15 @@ db.produtos.find(
 
 // Desafio 15
 use('commerce');
-db.produtos.find();
+db.produtos.count(
+  { nome: { $regex: /Mc/i } },
+);
 
 // Desafio 16
 use('commerce');
-db.produtos.find();
+db.produtos.count(
+  { ingredientes: { $size: 4 } },
+);
 
 // Desafio 17
 use('commerce');
