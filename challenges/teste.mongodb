@@ -1,12 +1,13 @@
 use("commerce");
 
-db.produtos.updateOne(
+db.produtos.updateMany(
   {
-    nome: "Big Mac"
+    nome: { $ne: "McChicken" },
+    ingredientes: { $ne: "ketchup" },
   },
   {
-    $currentDate: {
-      ultimaModificacao: { $type: "date" }
+    $push: {
+      ingredientes: "ketchup",
     },
   },
 );
@@ -40,11 +41,10 @@ db.produtos.updateMany(
 use("commerce");
 
 db.produtos.find(
-  {
-    ultimaModificacao: { $exists: true }
-  },
+  {},
   {
     _id: 0,
     nome: 1,
+    ingredientes: 1,
   },
 );
