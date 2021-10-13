@@ -2,11 +2,9 @@ use("commerce");
 db.produtos.find();
 
 use("commerce");
-db.produtos.createIndex({ descricao: "text" }, { default_language: "pt" });
 db.produtos.find(
   {
-    $text: {
-      $search: "frango hamburguer",
-    },
+    vendidos: { $mod: [5, 0] }
   },
-).count();
+  { _id: 0, nome: 1, vendidos: 1 },
+);
