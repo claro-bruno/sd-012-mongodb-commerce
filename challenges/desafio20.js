@@ -1,6 +1,6 @@
 db.produtos.updateMany(
   {
-    nome: "Big Mac"
+    nome: "Big Mac",
   },
   {
     $unset: {
