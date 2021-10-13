@@ -2,5 +2,11 @@ use("commerce");
 db.produtos.find();
 
 use("commerce");
-db.produtos.find({ nome: { $regex: /^Mc/i } }).count();
-
+db.produtos.createIndex({ descricao: "text" }, { default_language: "pt" });
+db.produtos.find(
+  {
+    $text: {
+      $search: "frango hamburguer",
+    },
+  },
+).count();
