@@ -2,14 +2,5 @@ use("commerce");
 db.produtos.find();
 
 use("commerce");
-db.produtos.updateMany(
-  {},
-  { $push:
-    { valoresNutricionais:
-      { $each: [], $sort: { percentual: -1 } }
-    }
-  }
-);
-
-db.produtos.find({}, { valoresNutricionais: 1, _id: 0, nome: 1 });
+db.produtos.find({ nome: { $regex: /^Mc/i } }).count();
 
