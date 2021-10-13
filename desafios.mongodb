@@ -1,7 +1,17 @@
 use("commerce");
-db.produtos.updateMany(
-  {},
-  { $set: { criadoPor: "Ronald McDonald" } },
+db.produtos.find();
+
+use("commerce");
+db.produtos.updateOne(
+  
 );
 
-db.produtos.find({}, { nome: 1, criadoPor: 1, _id: 0 });
+db.produtos.find(
+  { ultimaModificacao: { $exists: true } },
+  { _id: 0, nome: 1 },
+);
+
+
+
+
+
