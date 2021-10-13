@@ -12,12 +12,12 @@ db.produtos.updateMany(
 );
 
 db.produtos.updateMany(
-  { ingredientes: { $elemMatch: "hamburguer" } },
+  { "tags.0": "bovino" },
   { $inc: { avaliacao: 5 } },
 );
 
 db.produtos.updateMany(
-  { tags: { $elemMatch: "ave" } },
+  { "tags.0": "ave" },
   { $inc: { avaliacao: 3 } },
 );
 
