@@ -1,15 +1,17 @@
-db.produtos.updateMany({},
+db.produtos.updateMany(
+  {},
   { $rename: {
-      "descricao": "descricaoSite"
-    }
-  }
+      descricao: "descricaoSite",
+    },
+  },
 );
 
-db.produtos.find({},
+db.produtos.find(
+  {},
   {
     _id: 0,
     nome: 1,
     descricao: 1,
     descricaoSite: 1,
-  }
+  },
 );
