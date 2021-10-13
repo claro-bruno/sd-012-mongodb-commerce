@@ -7,13 +7,13 @@ db.produtos.updateMany(
       ingredientes: "ketchup",
     },
   },
-  );
+);
 
-  db.produtos.find(
-    {},
-    {
-      nome: 1,
-      ingredientes: 1,
-      _id: 0,
-    },
-  );
+db.produtos.find(
+  {},
+  {
+    nome: 1,
+    ingredientes: 1,
+    _id: 0,
+  },
+);
