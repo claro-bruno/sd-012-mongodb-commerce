@@ -13,7 +13,7 @@ db.produtos.updateMany(
   },
   {
     $set: {
-      "vendasPorDia.4": 60,
+      "vendasPorDia.3": 60,
     },
   },
 );
@@ -26,7 +26,7 @@ db.produtos.updateMany(
   },
   {
     $set: {
-      "vendasPorDia.7": 120,
+      "vendasPorDia.6": 120,
     },
   },
 );
