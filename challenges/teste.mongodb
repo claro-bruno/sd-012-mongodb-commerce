@@ -1,12 +1,13 @@
 use("commerce");
 
-db.produtos.updateOne(
+db.produtos.updateMany(
+  {},
   {
-    tags: { $in: [ "bovino", "pão" ] }
-  },
-  {
-    $inc: {
-      "vendasPorDia.6": 120,
+    $push: {
+      tags: {
+        $each: ["combo", "tasty"],
+        $sort: 1,
+      },
     },
   },
 );
@@ -44,6 +45,6 @@ db.produtos.find(
   {
     _id: 0,
     nome: 1,
-    vendasPorDia: 1,
+    tags: 1,
   },
 );
