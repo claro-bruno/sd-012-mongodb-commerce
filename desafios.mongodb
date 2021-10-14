@@ -1,13 +1,17 @@
 use("commerce");
 db.produtos.updateMany(
-  {},
+  {
+    valorUnitario: {
+      $exists: false,
+    }
+  },
   {
     $set: {
-      criadoPor: "Ronald McDonald"
+      valorUnitario: NumberDecimal("0.00"),
     }
   }
 );
 db.produtos.find(
   {},
-  { _id: false, nome: true, criadoPor: true }
+  { _id: false, nome: true, valorUnitario: true },
 );
