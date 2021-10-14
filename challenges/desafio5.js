@@ -1,9 +1,7 @@
 db.produtos.updateMany(
   {
     nome: {
-      $not: {
-        $eq: "McChicken",
-      },
+      $ne: "McChicken",
     },
   },
   {
