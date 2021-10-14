@@ -1,0 +1,12 @@
+// MongoDB Playground
+// Pego olhando nos repositórios dos colegas de turma para tentar resolver meu erro de não avaliar o projeto.
+
+use("commerce");
+db.produtos.updateOne(
+    { nome: "Big Mac" },
+    { $unset: { curtidas: "" } },
+);
+
+db.produtos.find(
+    { $expr: { $gt: ["$curtidas", "$vendidos"] } },
+);
