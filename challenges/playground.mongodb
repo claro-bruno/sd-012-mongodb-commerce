@@ -1,9 +1,15 @@
 // MongoDB Playground
-db.produtos.createIndex(
-    { descricao: "text" },
-    { default_language: "portuguese" },
+db.produtos.updateMany(
+    { },
+    { $rename: { descricao: "descricaoSite" } },
 );
 
 db.produtos.find(
-  { $text: { $search: "feito com" } },
-).count();
+    {},
+    {
+    _id: 0,
+    nome: 1,
+    descricao: 1,
+    descricaoSite: 1,
+    },
+);
