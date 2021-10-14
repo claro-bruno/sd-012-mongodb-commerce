@@ -7,9 +7,11 @@ db.produtos.updateMany(
 );
 
 db.produtos.find(
-  { ultimaModificacao: {
-    $exists: true,
-  } },
+  { 
+    ultimaModificacao: {
+      $exists: true,
+    },
+  },
   {
     _id: false,
     nome: true,
