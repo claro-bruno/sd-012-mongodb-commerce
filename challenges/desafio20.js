@@ -5,7 +5,7 @@ db.produtos.updateMany(
   {
     $unset: {
       curtidas: "",
-    }
+    },
   },
 );
 
