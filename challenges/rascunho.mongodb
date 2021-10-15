@@ -205,3 +205,46 @@ db.produtos.find(
     vendasPorDia: 1 
   },
 );
+
+// 11 - Insira os elementos combo e tasty no array tags de todos os sanduíches e aproveite para deixar os elementos em ordem alfabética ascendente.
+
+use("commerce");
+db.produtos.updateMany(
+  {},
+  { $push: 
+    { tags: { 
+        $each: ["combo", "tasty"],
+        $sort: 1,
+    } } },
+);
+
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    tags: 1, 
+  },
+);
+
+// 12 - Ordene em todos os documentos os elementos do array valoresNutricionais pelo campo percentual de forma descendente.
+
+
+use("commerce");
+db.produtos.updateMany(
+  {},
+  { $push: 
+    { valoresNutricionais: { 
+        $each: [],
+        $sort: { percentual: -1 },
+    } } },
+);
+
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    valoresNutricionais: 1, 
+  },
+);
