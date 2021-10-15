@@ -248,3 +248,25 @@ db.produtos.find(
     valoresNutricionais: 1, 
   },
 );
+
+// 13 - Adicione o elemento muito sódio ao final do array tags nos produtos em que o percentual de sódio seja maior ou igual a 40.
+
+use("commerce");
+db.produtos.updateMany(
+  { valoresNutricionais: 
+  { $elemMatch: { 
+    tipo: "sódio", 
+    percentual: { $gte: 40 } 
+    } }  },
+  { $push: { tags: "muito sódio" } }
+);
+
+use("commerce");
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    tags: 1, 
+  },
+);
