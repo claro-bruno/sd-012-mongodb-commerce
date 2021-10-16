@@ -1,9 +1,10 @@
 use("commerce");
 db.produtos.createIndex(
   { descricao: "text" },
-)
+  { default_language: "pt" },
+);
 
 use("commerce");
 db.produtos.count(
-  { $text: { $search: "frango hamburguer"} },  
+  { $text: { $search: "feito com"} },  
 );
