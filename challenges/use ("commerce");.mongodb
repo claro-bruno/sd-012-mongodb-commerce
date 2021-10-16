@@ -2,28 +2,19 @@ use ("commerce");
 db.produtos.find();
 
 use ("commerce");
-db.produtos.updateMany(
-  { tags: { $all: ["bovino", "pão"]}},
-  { $inc: { "vendasPorDia.6": 120 } },
-);
-
-use ("commerce");
-db.produtos.updateMany(
-  {},
-  { $push: {
-    vendasPorDia: {
-      $each: [0, 0, 0, 0, 0, 0, 0],
-    },
-  } },
-);
+db.produtos.find(
+  { ingredientes: {
+    $size: 4
+  }},
+).count();
 
 use ("commerce");
 db.produtos.find(
   {},
   {
-  nome: 1,
   _id: 0,
-  vendasPorDia: 1,
+  nome: 1,
+  tags: 1,
   },
 );
 
