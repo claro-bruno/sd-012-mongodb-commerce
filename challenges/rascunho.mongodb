@@ -292,3 +292,17 @@ db.produtos.find(
     tags: 1, 
   },
 );
+
+// 15 - Conte quantos produtos contêm Mc no nome, sem considerar letras maiúsculas ou minúsculas.
+
+use("commerce");
+db.produtos.count(
+  { nome: { $regex: /mc/i } },
+);
+
+// 16 - Conte quantos produtos têm 4 ingredientes.
+
+use("commerce");
+db.produtos.count(
+  { ingredientes: { $size: 4 } }
+);
