@@ -317,7 +317,45 @@ db.produtos.createIndex(
 
 use("commerce");
 db.produtos.count(
-  { $text: { $search: "frango hamburguer",
+  { 
+    $text: { $search: "frango hamburguer",
     $language: "pt"
   } },
 )
+
+// 18 - Conte quantos documentos contêm a expressão feito com utilizando o operador $text.
+
+db.produtos.createIndex(
+  { descricao: "text" },
+  { default_language: "pt" }
+)
+
+
+use("commerce");
+db.produtos.count(
+  { 
+    $text: { $search: "feito com",
+    $language: "pt"
+  } },
+)
+
+// 19 - Renomeie o campo descricao para descricaoSite em todos os documentos.
+
+use("commerce");
+db.produtos.updateMany(
+  {},
+  {
+    $rename: { descricao: "descricaoSite" }
+  }
+)
+
+use("commerce");
+db.produtos.find(
+  {},
+  {
+    nome: 1,  
+    _id: 0,
+    descricao: 1,
+    descricaoSite: 1, 
+  },
+);
