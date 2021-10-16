@@ -9,9 +9,7 @@ db.produtos.updateMany(
   },
   {
     $push: {
-      tags: { 
-        $each: ["contém sódio"], 
-      },
+      tags: "contém sódio",
     }, 
   },
 );
