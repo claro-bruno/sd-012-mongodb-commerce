@@ -1,3 +1,5 @@
-db.voos.find(
-  { natureza: { $eq: "Internacional" } },
- ).count();
+db.produtos.find({
+  ingredientes: { $size: 4 },
+},
+ {
+}).count();
