@@ -1,6 +1,12 @@
-db.voos.find({ vooId: { $eq: 756807 } }, 
-  { "empresa.sigla": 1, 
-  "empresa.nome": 1, 
-  passageiros: 1,
-  _id: 0,
- });
+db.produtos.updateMany({ nome: { $in: ["Big Mac", "Quarteirão com Queijo"] } },
+ {  
+    $push: { ingredientes: { $each: ["bacon"] } },
+  });
+
+db.produtos.find({
+},
+ {
+    _id: 0,
+    nome: 1,
+    ingredientes: 1,
+  });
