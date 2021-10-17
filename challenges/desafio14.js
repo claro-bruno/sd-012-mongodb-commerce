@@ -18,7 +18,7 @@ db.produtos.updateMany(
       tags: "contém sódio",
     },
   },
-)
+);
 
 db.produtos.find(
   {},
