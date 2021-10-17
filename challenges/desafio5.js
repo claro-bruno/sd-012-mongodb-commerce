@@ -1,1 +1,12 @@
-db.voos.find({}, { _id: 0, vooId: 1 }).limit(3).skip(9);
+db.produtos.updateMany({ nome: { $ne: "McChicken" } },
+ {  
+    $addToSet: { ingredientes: { $each: ["ketchup"] } },
+  });
+
+db.produtos.find({
+},
+ {
+    _id: 0,
+    nome: 1,
+    ingredientes: 1,
+  });
