@@ -8,8 +8,11 @@ db.produtos.updateMany({ tags: { $in: ["bovino"] } },
 db.produtos.updateMany({ tags: { $in: ["ave"] } },
 { $inc: { avaliacao: 3 } });
 
-db.produtos.find({
+db.produtos.find(
+  {},
+  {
   nome: true,
   avaliacao: true,
   _id: false,
-});
+},
+);
