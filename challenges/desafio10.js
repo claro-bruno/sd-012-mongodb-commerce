@@ -1,12 +1,21 @@
-db.voos.find(
-  { "empresa.nome": "GOL", ano: 2017 },
+db.produtos.updateMany({},
+  {  
+     $set: { vendasPorDia: [0, 0, 0, 0, 0, 0, 0] },
+   });
+ 
+ db.produtos.updateOne({ nome: "Big Mac" },
+ {
+   $inc: { "vendasPorDia.3": 60 },
+ });
+ 
+ db.produtos.updateMany({ tags: { $all: ["bovino", "pão"] } },
+ {
+   $inc: { "vendasPorDia.6": 120 },
+ });
+ db.produtos.find({
+ },
   {
-    vooId: true,
-    "empresa.nome": true,
-    "aeroportoOrigem.nome": true,
-    "aeroportoDestino.nome": true,
-    mes: true,
-    ano: true,
-    _id: 0,
-  },
-).limit(10);
+     _id: 0,
+     nome: 1,
+     vendasPorDia: 1,
+   });
