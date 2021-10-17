@@ -8,7 +8,7 @@ db.produtos.updateMany(
   {},
   {
     $rename: {
-      "descricao": "descricaoSite",
+      descricao: "descricaoSite",
     },
   },
 );
