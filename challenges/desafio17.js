@@ -9,10 +9,8 @@ db.produtos.createIndex(
   { default_language: "pt" },
 );
 
-db.produtos.count(
+db.produtos.find(
   {
-    $text: {
-      $search: "frango hamburger",
-    },
+    $text: { $search: "frango hamburger" },
   },
-);
+).count();
