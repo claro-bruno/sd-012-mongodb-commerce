@@ -1,9 +1,11 @@
-db.voos.find(
-  { "passageiros.pagos": { $gt: 7000 } },
-  {
-    vooId: 1,
-    mes: 1,
-    ano: 1,
-    _id: 0,
+db.produtos.createIndex({
+  descricao: "text",
+},
+ { default_language: "portuguese",
+});
+
+db.produtos.find({
+  $text: {
+    $search: "\"feito com\"",
   },
-).limit(1);
+}).count();
