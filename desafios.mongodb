@@ -1,4 +1,12 @@
 use("commerce");
+db.produtos.updateMany(
+  {},
+  { $rename: {
+      descricao: 'descricaoSite',
+    },
+  }
+);
 db.produtos.find(
-  { ingredientes: { $size: 4 } }
+  {},
+  { _id: false, nome: true, descricao: true, descricaoSite: true },
 );
