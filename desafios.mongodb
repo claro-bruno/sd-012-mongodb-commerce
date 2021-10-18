@@ -1,9 +1,5 @@
 use("commerce");
-db.produtos.updateOne(
-  { nome: "Big Mac"},
-  { $unset: { curtidas: "" } },
-);
 db.produtos.find(
-  {},
-  { _id: false, nome: true, curtidas: true },
+  { $where: "this.curtidas > this.vendidos" },
+  { _id: false, nome: true },
 );
