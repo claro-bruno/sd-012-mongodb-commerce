@@ -1,3 +1,3 @@
 db.produtos.count(
-  {nome : /.*mc.*/i}
+  { nome: /.*mc.*/i },
 );
