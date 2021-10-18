@@ -1,4 +1,4 @@
-db.produtos.updateMany(
+db.produtos.count(
     { 
        valoresNutricionais: { $elemMatch: { tipo: "sódio", percentual: { $gte: 40 } } }, 
      },
