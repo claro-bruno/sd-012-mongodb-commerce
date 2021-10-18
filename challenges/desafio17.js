@@ -14,4 +14,3 @@ db.produtos.createIndex(
      $search: "frango hamburguer",
    },
  }).count();
- 
