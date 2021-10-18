@@ -7,3 +7,4 @@ db.produtos.find(
   { _id: false, nome: true, vendidos: true },
 );
 // evaluator disse que está errado.... -.-
+// tinha subido o arquivo vazio, erro nao foi do evaluator, sorry.
