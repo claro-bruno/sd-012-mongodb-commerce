@@ -1,12 +1,9 @@
 use("commerce");
-db.produtos.updateMany(
-  {},
-  { $rename: {
-      descricao: 'descricaoSite',
-    },
-  }
+db.produtos.updateOne(
+  { nome: "Big Mac"},
+  { $unset: { curtidas: "" } },
 );
 db.produtos.find(
   {},
-  { _id: false, nome: true, descricao: true, descricaoSite: true },
+  { _id: false, nome: true, curtidas: true },
 );
