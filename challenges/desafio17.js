@@ -1,8 +1,5 @@
-db.produtos.updateMany({
-    $text:
-        { $search: descricao,
-        $language: portuguese,
-        $caseSensitive: false,
-        $diacriticSensitive: false },
-});
-db.produtos.find({ $text: { $search: { $in: ["frango", "hamburguer"] } } }).count();
+db.produtos.createIndex(
+{ descricao: "text" },
+{ default_language: "portuguese" },
+);
+db.produtos.find({ $text: { $search: "frango hamburguer" } }).count();
