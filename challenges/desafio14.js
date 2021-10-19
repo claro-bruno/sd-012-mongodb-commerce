@@ -4,7 +4,7 @@ db.produtos.updateMany(
         $elemMatch: {
           percentual: {
             $gt: 20,
-            $lt: 40
+            $lt: 40,
           },
           tipo: {
             $eq: "sódio",
@@ -27,4 +27,3 @@ db.produtos.updateMany(
       _id: 0,
     },
   );
-  
