@@ -3,7 +3,7 @@ db.produtos.updateMany({
       "Quarteirão com Queijo",
   }, {
     $pop: {
-      ingredientes: -1 ,
+      ingredientes: -1,
     },
   });
 
