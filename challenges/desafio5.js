@@ -1,7 +1,7 @@
 db.produtos.updateMany(
-    { valorUnitario: { $exists: 0 } },
-    {}, { $set: { valorUnitario: NumberDecimal("0.00") } },
+    { nome: { $ne: "McChicken" } },
+    { $addToSet: { ingredientes: "ketchup" } },
   );
 db.produtos.find(
-    {}, { _id: 0, nome: 1, valorUnitario: 1 },
+    {}, { _id: 0, nome: 1, ingredientes: 1 },
 );
