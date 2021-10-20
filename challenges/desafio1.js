@@ -1,1 +1,1 @@
-db.produtos.updateMany({}, { criadoPor: "Ronald McDonald" });
+db.produtos.updateMany({}, { $set: { criadoPor: "Ronald McDonald" } });
