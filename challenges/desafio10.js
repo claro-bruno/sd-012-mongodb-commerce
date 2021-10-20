@@ -1,7 +1,15 @@
 db.produtos.updateMany(
   {},
   { $set: {
-    vendasPorDia: [NumberInt(0), NumberInt(0), NumberInt(0), NumberInt(0), NumberInt(0), NumberInt(0), NumberInt(0),],
+    vendasPorDia: [
+      NumberInt(0),
+      NumberInt(0),
+      NumberInt(0),
+      NumberInt(0),
+      NumberInt(0),
+      NumberInt(0),
+      NumberInt(0),
+    ],
   } },
 );
 
@@ -11,6 +19,6 @@ db.produtos.updateOne(
     vendasPorDia: {
       $each: [60],
       $position: 3,
-      $slice: 7
+      $slice: 7,
     } } },
 );
