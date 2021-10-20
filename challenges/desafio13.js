@@ -1,4 +1,4 @@
-db.produtos.updateMany({}, {
+db.produtos.updateMany({ "valoresNutricionais.2.percentual": { $gte: 40 } }, {
     $push: {
       tags: {
         $each: ["muito sódio"],
