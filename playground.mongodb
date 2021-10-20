@@ -1,7 +1,16 @@
 use('commerce');
 
-db.produtos.count(
+db.produtos.createIndex( 
   {
-    ingredientes: { $size: 4 },
+    descricao: "text",
+  },
+  {
+    default_language: "pt",
+  },
+);
+
+db.produtos.count(
+  { 
+    $text: { $search: "frango hamburguer" },
   },
 );
