@@ -1,9 +1,11 @@
 use('commerce');
 
 db.produtos.updateMany(
-  {}, 
   {
-    $pull: { ingredientes: "cebola" },
+    nome: "Quarteirão com Queijo",
+  }, 
+  {
+    $pop: { ingredientes: -1 },
   },
 );
 
