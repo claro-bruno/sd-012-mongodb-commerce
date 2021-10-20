@@ -1,3 +1,3 @@
-db.produtos.count(
+db.produtos.find(
     { ingredientes: { $size: 4 } },
-  );
+  ).count();
