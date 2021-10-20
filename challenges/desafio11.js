@@ -1,12 +1,13 @@
 db.produtos.updateMany(
   {},
   {
-    $addToSet: {
+    $push: {
       tags: {
         $each: [
           "combo",
           "tasty",
         ],
+        $sort: 1,
       },
     },
   },
