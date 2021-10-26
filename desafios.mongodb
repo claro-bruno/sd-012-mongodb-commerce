@@ -1,20 +1,23 @@
 use('commerce');
 
-//req 9
+//req 11
 
-db.produtos.updateOne(
+db.produtos.updateMany(
+  {},
   {
-    nome: "Cheddar McMelt"
-  },
-  {
-    $pop: { ingredientes: 1 },
+    $push: {
+      tags: {
+        $each: ["combo", "tasty"],
+        $sort: 1,
+      },
+    },
   },
 );
 
 db.produtos.find(
   {},
   {
-    nome: 1, ingredientes: 1, _id: 0,
+    nome: 1, tags: 1, _id: 0,
   },
 );
 
@@ -185,5 +188,59 @@ db.produtos.find(
 //   {},
 //   {
 //     nome: 1, ingredientes: 1, _id: 0,
+//   },
+// );
+
+//req 9
+
+// db.produtos.updateOne(
+//   {
+//     nome: "Cheddar McMelt"
+//   },
+//   {
+//     $pop: { ingredientes: 1 },
+//   },
+// );
+
+// db.produtos.find(
+//   {},
+//   {
+//     nome: 1, ingredientes: 1, _id: 0,
+//   },
+// );
+
+//req 10
+
+// db.produtos.updateMany(
+//   {},
+//   {
+//     $set: {
+//       vendasPorDia: [0, 0, 0, 0, 0, 0, 0]
+//     },
+//   },
+// );
+
+// db.produtos.updateOne(
+//   {
+//     nome: "Big Mac"
+//   },
+//   {
+//     $inc: { "vendasPorDia.3": 60 },
+//   },
+// );
+
+// db.produtos.updateMany(
+//   {
+//     tags: { $in: ["bovino", "pão"] },
+//   },
+//   {
+//     $inc: { "vendasPorDia.6": 120 },
+//   },
+// );
+
+// db.produtos.find(
+//   {},
+//   {
+//     nome: 1, vendasPorDia: 1, _id: 0,
 //   },
 // );
