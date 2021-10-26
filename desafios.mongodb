@@ -1,20 +1,20 @@
 use('commerce');
 
-//req 19
+//req 20
 
-db.produtos.updateMany(
-  {},
+db.produtos.updateOne(
   {
-    $rename: {
-      descricao: "descricaoSite",
-    },
+    nome: "Big Mac",
+  },
+  {
+    $unset: { curtidas: "" },
   },
 );
 
 db.produtos.find(
   {},
   {
-    nome: 1, descricao: 1, descricaoSite: 1, _id: 0,
+    nome: 1, curtidas: 1, _id: 0,
   },
 );
 
@@ -394,3 +394,21 @@ db.produtos.find(
 //       }
 //   }
 // ).count();
+
+//req 19
+
+// db.produtos.updateMany(
+//   {},
+//   {
+//     $rename: {
+//       descricao: "descricaoSite",
+//     },
+//   },
+// );
+
+// db.produtos.find(
+//   {},
+//   {
+//     nome: 1, descricao: 1, descricaoSite: 1, _id: 0,
+//   },
+// );
