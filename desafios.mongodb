@@ -1,23 +1,21 @@
 use('commerce');
 
-//req 6
+//req 7
+
 db.produtos.updateMany(
+  {},
   {
-    nome: { $in: ["Big Mac", "Quarteirão com Queijo"] },
-  },
-  {
-    $push: {
-      ingredientes: "bacon"
+    $pull: {
+      ingredientes: "cebola"
     },
   },
 );
-
 
 db.produtos.find(
   {},
   {
     nome: 1, ingredientes: 1, _id: 0,
-  },
+  }
 );
 
 //req 1
@@ -125,6 +123,27 @@ db.produtos.find(
 //     $addToSet: { ingredientes: "ketchup" },
 //   },
 // );
+
+// db.produtos.find(
+//   {},
+//   {
+//     nome: 1, ingredientes: 1, _id: 0,
+//   },
+// );
+
+//req 6
+
+// db.produtos.updateMany(
+//   {
+//     nome: { $in: ["Big Mac", "Quarteirão com Queijo"] },
+//   },
+//   {
+//     $push: {
+//       ingredientes: "bacon"
+//     },
+//   },
+// );
+
 
 // db.produtos.find(
 //   {},
