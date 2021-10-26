@@ -1,14 +1,6 @@
 use('commerce');
 
-//req 16
-
-db.produtos.find(
-  {
-    ingredientes: {
-      $size: 4,
-    },
-  },
-).count();
+// 
 
 //req 1
 // db.produtos.updateMany(
@@ -335,6 +327,16 @@ db.produtos.find(
 //   {
 //     nome: {
 //       $regex: /Mc/i,
+//     },
+//   },
+// ).count();
+
+//req 16
+
+// db.produtos.find(
+//   {
+//     ingredientes: {
+//       $size: 4,
 //     },
 //   },
 // ).count();
