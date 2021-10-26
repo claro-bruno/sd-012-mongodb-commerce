@@ -1,17 +1,19 @@
 use('commerce');
 
-//req 12
+//req 13
 
 db.produtos.updateMany(
-  {},
+  {
+    valoresNutricionais: {
+      $elemMatch: {
+        tipo: "sódio",
+        percentual: { $gte: 40 },
+      },
+    },
+  },
   {
     $push: {
-      valoresNutricionais: {
-        $each: [],
-        $sort: {
-          percentual: -1
-        },
-      },
+      tags: "muito sódio",
     },
   },
 );
@@ -19,9 +21,8 @@ db.produtos.updateMany(
 db.produtos.find(
   {},
   {
-    nome: 1, valoresNutricionais: 1,
-    _id: 0,
-  }
+    nome: 1, tags: 1, _id: 0,
+  },
 );
 
 //req 1
@@ -267,4 +268,28 @@ db.produtos.find(
 //   {
 //     nome: 1, tags: 1, _id: 0,
 //   },
+// );
+
+//req 12
+
+// db.produtos.updateMany(
+//   {},
+//   {
+//     $push: {
+//       valoresNutricionais: {
+//         $each: [],
+//         $sort: {
+//           percentual: -1
+//         },
+//       },
+//     },
+//   },
+// );
+
+// db.produtos.find(
+//   {},
+//   {
+//     nome: 1, valoresNutricionais: 1,
+//     _id: 0,
+//   }
 // );
