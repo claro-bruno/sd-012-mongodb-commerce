@@ -1,6 +1,17 @@
 use('commerce');
 
-//
+//req 22
+
+db.produtos.find(
+  {
+    vendidos: {
+      $mod: [5, 0],
+    },
+  },
+  {
+    nome: 1, vendidos: 1, _id: 0,
+  },
+);
 
 //req 1
 // db.produtos.updateMany(
@@ -412,5 +423,18 @@ use('commerce');
 //   {},
 //   {
 //     nome: 1, curtidas: 1, _id: 0,
+//   },
+// );
+
+//req 21
+
+// db.produtos.find(
+//   {
+//     $expr: {
+//       $gt: ["$curtidas", "$vendidos"],
+//     },
+//   },
+//   {
+//     nome: 1, _id: 0,
 //   },
 // );
