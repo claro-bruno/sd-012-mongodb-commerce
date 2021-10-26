@@ -1,23 +1,22 @@
 use('commerce');
 
-//req 18
+//req 19
 
-db.produtos.createIndex(
+db.produtos.updateMany(
+  {},
   {
-    descricao: "text",
-  },
-  {
-    default_language: "pt",
+    $rename: {
+      descricao: "descricaoSite",
+    },
   },
 );
 
 db.produtos.find(
+  {},
   {
-    $text: {
-      $search: "\"feito com\""
-      }
-  }
-).count();
+    nome: 1, descricao: 1, descricaoSite: 1, _id: 0,
+  },
+);
 
 //req 1
 // db.produtos.updateMany(
@@ -375,4 +374,23 @@ db.produtos.find(
 //       $search: "frango hamburguer",
 //     },
 //   },
+// ).count();
+
+//req 18
+
+// db.produtos.createIndex(
+//   {
+//     descricao: "text",
+//   },
+//   {
+//     default_language: "pt",
+//   },
+// );
+
+// db.produtos.find(
+//   {
+//     $text: {
+//       $search: "\"feito com\""
+//       }
+//   }
 // ).count();
