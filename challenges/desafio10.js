@@ -1,4 +1,4 @@
-db.produtos.updatemany(
+db.produtos.updateMany(
     {},
     {
         $set: { 
@@ -7,7 +7,7 @@ db.produtos.updatemany(
     },
 );
 
-db.produtos.updatemany(
+db.produtos.updateOne(
     {
         nome: "Big Mac",
     },
@@ -18,7 +18,7 @@ db.produtos.updatemany(
     },
 );
 
-db.produtos.updatemany(
+db.produtos.updateMany(
     {
         tags: {
             $in: ["bovino", "pão"],

@@ -1,4 +1,4 @@
-db.produtos.updatemany(
+db.produtos.updateMany(
     {},
     {
         $push: { 
