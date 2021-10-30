@@ -4,7 +4,7 @@ db.produtos.updateMany(
       },
     },
     {
-        $push: { 
+        $set: { 
               ingredientes: "bacon",
         },
     },
