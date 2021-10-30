@@ -1,7 +1,10 @@
 db.produtos.updateMany(
-    {},
+    { valorUnitario: {
+        $exists: false,
+      },
+    },
     {
-        $addToSet: { valorUnitario: NumberDecimal("0,00") },
+        $set: { valorUnitario: NumberDecimal("0,00") },
     },
 );
 
