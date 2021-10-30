@@ -1,7 +1,7 @@
 db.produtos.count(
     {
-        nome: {
-            $regex: /mc/i,
+        ingredientes: {
+            $size: 4,
         },
     },
 );

@@ -13,7 +13,7 @@ db.produtos.updatemany(
     },
     {
         $inc: { 
-            "vendasPorDia.4": 60,
+            "vendasPorDia.3": 60,
         },
     },
 );
@@ -26,7 +26,7 @@ db.produtos.updatemany(
     },
     {
         $inc: { 
-            "vendasPorDia.7": 120,
+            "vendasPorDia.6": 120,
         },
     },
 );
@@ -34,6 +34,6 @@ db.produtos.updatemany(
 db.produtos.find(
     {},
     {
-        _id: 0, nome: 1, ingredientes: 1,
+        _id: 0, nome: 1, vendasPorDia: 1,
     },
 );
