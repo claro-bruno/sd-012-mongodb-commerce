@@ -1,14 +1,8 @@
 use('commerce')
-db.produtos.updateMany(
-    {},
-    { $push: {
-      tags: {
-        $each: ["combo", "tasty"],
-        $sort: 1,
-      },
-    } },
-  );
+db.produtos.createIndex(
+  { descricao: "text" },
+  { default_language: "portuguese" },
+);
 db.produtos.find(
-    {},
-    { _id: false, nome: true, tags: true },
-  );
+  { $text: { $search: "frango hamburguer" } },
+).count();
