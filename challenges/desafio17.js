@@ -1,1 +1,6 @@
-db.produtos.find({ ingredientes: { $size: 4 } }).count();
+db.produtos.createIndex(
+    { descricao: "text" },
+    { default_language: "portuguese" },
+);
+
+db.produtos.find({ $text: { $search: "frango hamburguer" } }).count();
